@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./SRC/TraceWithUsLogo.png">
+    <link rel="stylesheet" href="/CSS/home.css">
+
+    <title>Trace with Us | Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <section id="login">
+            <!--Introduces what kind of website is Trace With Us, as well as its benefits-->
+            <div id="info">
+                <img src="/SRC/TraceWithUsLogo.png" alt="" id="mainLogo"> <br>
+                <span id="tagline">Where Contact Tracing is Easier With Us!</span>
+                <p id="introductory"><b>Trace With Us</b> is an online contact tracing webite wherin users and visitors
+                    can
+                    submit their contact tracing form upon their visit in a facility.</p>
+                <hr id="infoHR">
+                <p class="perks">Easier Contact Tracing Process</p>
+                <p class="perks">Allows the admins to monitor who enters and when did they entered the facility</p>
+                <p class="perks">Secures users' information confidentiality</p>
+            </div>
+
+            <!--Log In form where the user or admin will log or create his account-->
+            <div class="login">
+
+                <form action="/login" method="POST" id="form">
+                    <h1>Log In</h1>
+                    <input type="email" name="email" id="email" placeholder="Email" required /> <br>
+                    <input type="password" name="password" id="password" placeholder="Password" required /> <br>
+                    <button type="submit" id="btnLogInSubmit"> Submit</button><br>
+                    <hr id="formHR">
+                    <p id="reg">Doesn't have an account yet? <a href="/register">Register Now!</a></p>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/JS/log_in.js"></script>
+</body>
+
+</html>

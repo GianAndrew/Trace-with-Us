@@ -1,0 +1,67 @@
+/*
+    For Color Scheme
+    color blue 1: #1B7CED
+    color blue 2: #1e87ff
+    color green 1: #73B504
+    color green 2: #80c904
+    color red 1: #B30000
+    color red 2: #E60000
+    color yellow 1:#FFD700
+    color yellow 2: #FFE41E
+*/
+
+/* For General Element Styling */
+
+hr {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+/* For Class Styling */
+
+.history-container {
+  width: 1000px;
+  height: 500px;
+  padding: 50px;
+  background-color: var(--primary-color);
+  padding-top: 80px;
+  padding-bottom: 50px;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px var(--secondary-color);
+}
+
+.history-container .visit {
+  text-align: left;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.button-container {
+  height: 400px;
+  padding: 0 20px;
+  overflow-y: scroll;
+}
+
+.button-container .button-history {
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 3px;
+  background-color: rgba(0, 139, 139, 0.199);
+}
+
+.button-history:hover {
+  background-color: rgba(0, 255, 255, 0.151);
+}
+
+.button-trace {
+  font-weight: bold;
+  color: #1b7ced;
+  letter-spacing: 5px;
+  padding: 1rem;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-left: 610px;
+}
+
+/* For ID Stiylng */

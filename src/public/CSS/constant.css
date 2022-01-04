@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* For General Styling */
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.__my-btn-danger{
+  background-color: #ffbebe;
+  color: #ff3c3c;
+  font-weight: 500;
+  border-radius: .6rem;
+  padding: .4rem 0;
+  font-size: 1.0rem;
+}
+.__my-btn-danger:hover{
+  background-color: #ff3c3c;
+  color: #ffffff;
+}

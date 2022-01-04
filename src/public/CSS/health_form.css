@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*
+    For Color Scheme
+    color blue 1: #1B7CED
+    color blue 2: #1e87ff
+    color green 1: #73B504
+    color green 2: #80c904
+    color red 1: #B30000
+    color red 2: #E60000
+    color yellow 1:#FFD700
+    color yellow 2: #FFE41E
+*/
+
+/* For General Element Styling */
+
+body{
+  font-family: 'Poppins',sans-serif;
+}
+
+#hideAndShow1 {
+  display: none;
+}
+
+#hideAndShow2 {
+  display: none;
+}
+
+.__submit-btn-primary{
+  background-color: #beddff;
+  color: #188cff;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 500;
+  border-radius: .6rem;
+  padding: .4rem 0;
+  font-size: 1.2rem;
+}
+.__submit-btn-primary:hover{
+  background-color: #3699FF;
+  color: #ffffff;
+}
+
+

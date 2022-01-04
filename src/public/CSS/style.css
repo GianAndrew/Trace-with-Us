@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* For General Styling */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* For Setting the color for both Light and Dark Modes of the website */
+:root {
+  --primary-color: white;
+  --secondary-color: black;
+}
+
+.dark-theme {
+  --primary-color: black;
+  --secondary-color: white;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+/* For Main Navbar Styling*/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: var(--primary-color);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 10px black;
+}
+
+.navbar span {
+  margin: 0 1rem;
+  padding: 1rem;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+#navMenu {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+#navMenu:hover {
+  color: #1b7ced;
+}
+
+#webName {
+  font-weight: bold;
+  color: #1b7ced;
+  letter-spacing: 5px;
+  font-size: 18px;
+}
+
+/* For Sub Navbar Styling */
+.subMenu {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  background: var(--primary-color);
+  box-shadow: 0px 0px 10px var(--secondary-color);
+  transition: 0.5s;
+  transform: translateX(-100%);
+}
+
+.subMenu.active {
+  transform: translateX(0%);
+}
+
+/* For Sub Menu Button Styling */
+#navSubMenu {
+  color: var(--secondary-color);
+  position: absolute;
+  left: 250px;
+  cursor: pointer;
+  /*margin-left: 250px;*/
+}
+
+#navSubMenu:hover {
+  color: #1b7ced;
+}
+
+/* For Date Styling */
+#subMenuHeading {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  padding: 12.5px;
+  font-size: 14px;
+  color: #1b7ced;
+}
+
+#date {
+  font-weight: bold;
+}
+
+#amPM {
+  margin-left: 5px;
+}
+
+/* For Linked Pages and Other Functions Styling */
+#subMenu1 {
+  text-align: center;
+}
+
+#subMenu1 ul {
+  list-style: none;
+}
+
+#subMenu1 ul li {
+  padding: 30px 50px 30px 50px;
+  text-align: center;
+}
+
+#subMenu1 ul li a {
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+#subMenu1 ul li form {
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+#subMenu1 ul li a:hover {
+  color: #1b7ced;
+  font-weight: bold;
+}
+
+/* For Credits and Copyright Styling */
+#credits {
+  width: 300px;
+  position: absolute;
+  bottom: 0;
+}
+
+#subMenuHR {
+  margin: 0px 15px 15px 15px;
+}
+
+#TWULogo {
+  width: 60px;
+}
+
+#copyright {
+  font-size: 12px;
+  color: grey;
+}
+
+/* For Section Styling */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: center;
+}
+
+/* For Form Styling */
+form {
+  width: 800px;
+  padding: 50px;
+  background-color: var(--primary-color);
+  padding-top: 80px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px var(--secondary-color);
+}
+
+h1 {
+  font-size: 35px;
+  color: #1b7ced;
+  text-align: justify;
+}
