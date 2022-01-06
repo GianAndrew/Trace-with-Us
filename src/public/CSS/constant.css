@@ -8,6 +8,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+/* DANGER */
 .__my-btn-danger{
   background-color: #ffbebe;
   color: #ff3c3c;
@@ -21,6 +22,7 @@ body {
   color: #ffffff;
 }
 
+/* PRIMARY */
 .__my-btn-primary{
   background-color: #beddff;
   color: #188cff;
@@ -32,6 +34,20 @@ body {
 .__my-btn-primary:hover{
   background-color: #3699FF;
   color: #ffffff;
+}
+
+/* SECONDARY */
+.__my-btn-secondary{
+  background-color: #0000003f;
+  color: #202020;
+  font-weight: 500;
+  border-radius: .4rem;
+  padding: .4rem .8rem;
+  font-size: 1rem;
+}
+.__my-btn-secondary:hover{
+  background-color: #202020;
+  color: #d1d1d1ea;
 }
 .__my-btn-outline-primary{
   background-color: transparent;
@@ -60,3 +76,4 @@ background-color: #3699FF;
 background-color: #fff;
   color: #000000;
 }
+

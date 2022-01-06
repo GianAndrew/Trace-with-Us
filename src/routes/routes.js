@@ -6,6 +6,7 @@ const registerController = require("../controllers/registerController");
 const visitHistoryController = require('../controllers/visitHistoryController');
 const personalInfoController = require('../controllers/personalInfoController')
 const selectPageController = require('../controllers/selectPageController');
+const authencation = require('../validator/authencation');
 
 
 const router = express.Router();
@@ -33,7 +34,7 @@ router.post('/login', passport.authenticate('local', {
     successFlash: true,
     failureFlash: true
 }))
-router.post('/register', registerController.createNewUser);
+router.post('/register', authencation.validateRegister, registerController.createNewUser);
 
 router.post('/healthForm', healthFormController.fillUpHealthForm);
 

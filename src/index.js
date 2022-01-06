@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join('src', 'views'));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser('secret-key'))
 app.use(session({
     secret: 'secret-key',

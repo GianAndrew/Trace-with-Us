@@ -48,9 +48,12 @@
                     <li class="d-block d-lg-none nav-item"><a href="/" class="nav-link">New Form</a></li>
                     <li class="d-block d-lg-none nav-item">
                         <hr>
-                        <button type="button" class="__my-btn-danger btn" data-bs-toggle="modal"
-                            data-bs-target="#logoutModal"><i class="fa fa-sign-out me-1"></i>
-                            Log Out</button>
+                        <div class="d-grid">
+                            <button type="button" class="__my-btn-danger btn" data-bs-toggle="modal"
+                                data-bs-target="#logoutModal"><i class="fa fa-sign-out me-1"></i>
+                                Log Out</button>
+                        </div>
+
                     </li>
 
                     <li class="d-none d-lg-block nav-item dropdown bg-light rounded-3 px-2 py-2">
@@ -98,19 +101,19 @@
         <div class="container-fluid m-0 p-0">
             <div class="card bg-dark text-white">
                 <img src="https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                    class="card-img" alt="..." style="max-height: 500px; width: 100%; opacity: .5;">
+                    class="card-img" alt="..." style="max-height: 550px; width: 100%; opacity: .5;">
                 <div class="card-img-overlay d-flex justify-content-center align-items-center flex-column">
                     <h5 class="card-title display-1">Hello, <%= user.firstname %> </h5>
                     <p class="card-text text-center">
                         This is a wider card with supporting text below as a natural lead-in to
                         additional content. <br>
                         This content is a little bit longer.</p>
-                    <a href="/personalInfo" class=" __my-btn-outline-light btn">See my info</a>
+                    <a href="#accordionFlushExample" class=" __my-btn-outline-light btn">See History</a>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid h-100 py-5 mt-3">
+        <div class="container-fluid h-100 py-5 mt-5">
             <div class="container pt-3 px-5 my-2 bg-light border rounded-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">

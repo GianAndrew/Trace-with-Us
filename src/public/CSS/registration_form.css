@@ -12,7 +12,7 @@
 
 /* For General Element Styling */
 
-form {
+/* form {
   width: 1000px;
   padding: 50px;
   background-color: var(--primary-color);
@@ -51,7 +51,7 @@ title {
 
 /* For Class Styling */
 
-.flex {
+/* .flex {
   display: flex;
   justify-content: space-between;
   text-align: justify;
@@ -94,11 +94,11 @@ input {
   text-align: justify;
   margin-bottom: 8px;
   gap: 25px;
-}
+} */
 
 /* For ID Styling */
 
-#note {
+/* #note {
   margin-right: 773px;
   width: 100%;
   margin-bottom: 7px;
@@ -154,19 +154,9 @@ input {
 
 #suffix {
   width: 122px;
-}
+} */
 
-#dose-div {
+#vaccineBox {
   display: none;
 }
 
-#top-hr {
-  width: 1018px;
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
-.alert{
-  width:100%;
-  padding: 20px;
-  color: red;
-}

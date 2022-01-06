@@ -7,190 +7,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./SRC/TraceWithUsLogo.png">
 
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/registration_form.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./CSS/registration_form.css">
+    <link rel="stylesheet" href="./CSS/constant.css">
 
 
     <title>Trace with Us | Register</title>
 </head>
 
-<body onload="initClock()">
-    <div class="container">
-        <!--This is the main navbar where the name of the website and main menu button is located-->
-        <nav class="navbar">
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list"
-                viewBox="0 0 16 16" id="navMenu">
-                <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-            </svg>
-            <span id="webName">Trace With Us</span>
-        </nav>
+<body>
 
-        <!--This is the sub navbar where the date, other anchored pages and other functions are located. It can be seen by clicking the main menu button which is located at the left of the main navbar-->
-        <nav id="subMenu" class="subMenu">
-            <!--This div contains the date and the sub menu button-->
-            <div id="subMenuHeading">
-                <div id="dateTime">
-                    <div id="date">
-                        <span id="DayName">Day</span>,
-                        <span id="Month">Month</span>
-                        <span id="DayNum">00</span>,
-                        <span id="Year">0000</span>
-                    </div>
-                    <div id="time">
-                        <span id="Hour">00</span> :
-                        <span id="Minutes">00</span> :
-                        <span id="Seconds">00</span>
-                        <span id="amPM">AM</span>
-                    </div>
-                </div>
-                <!--This submenu button allows the sub navbar to be hidden again-->
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list"
-                    viewBox="0 0 16 16" id="navSubMenu">
-                    <path fill-rule="evenodd"
-                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                </svg>
-            </div>
-            <!--Other functions and linked pages of the webpage-->
-            <div id="subMenu1">
-                <ul>
-                    <li><a href="#" id="Dark_LightMode">Dark Mode</a></li>
+    <!-- -----------------------------------NAVBAR----------------------------------- -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="/visitHistory">
+                <h2 class="display-6 text-primary fw-light"><img src="./SRC/TraceWithUsLogo.png" class="mx-2" width="40"
+                        height="40">Trace With<span class="text-dark fw-bold"> Us</span>
+                </h2>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+
                 </ul>
-                <!--Copyright-->
-                <div id="credits">
-                    <hr id="subMenuHR">
-                    <span id="copyright"><img src="/SRC/TraceWithUsLogo.png" id="TWULogo" alt=""><br>All Rights Reserved
-                        2022</span>
-                </div>
+
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!--This is where the registration form code is located-->
-        <section>
-            <form action="/register" method="POST" id="ContTraceForm">
-                <!--Heading of the form-->
-
-                <h1>Registration Form</h1>
+    <!-- --------------------------------REGISTRATION-------------------------------- -->
 
 
-                <hr id="top-hr">
-                <div id="note">
-                    <span id="note1">Leave it Blank if none or not applicable.</span>
+    <!--This is where the registration form code is located-->
+    <div class="container-fluid min-vh-100 bg-light">
+
+        <div class="container p-5">
+
+            <div class="container p-5 mt-5 border shadow">
+                <h2 class="display-4">Registration</h2>
+                <hr>
+
+
+                <% if(typeof errors !== "undefined"){ %>
+                <% errors.forEach(element => { %>
+                <div class="alert alert-danger alert-dismissible fade show"><%= element.msg %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
-                <div class="flex">
-                    <div class="flex-input">
-                        <label for="fName">First Name <span class="asterisk">*</span></label>
-                        <input type="text" name="firstname" id="fName" placeholder="Juan" required autofocus>
-                    </div>
-                    <div class="flex-input">
-                        <label for="lName">Last Name <span class="asterisk">*</span></label>
-                        <input type="text" name="lastname" id="lName" placeholder="Santos" required>
-                    </div>
-                    <div class="flex-input">
-                        <label for="mName">Middle Name</label>
-                        <input type="text" name="middlename" id="mName" placeholder="Reyes">
-                    </div>
-                    <div class="flex-input">
-                        <label for="suffix">Suffix</label>
-                        <input type="text" name="suffix" id="suffix" placeholder="Jr.">
-                    </div>
-                </div>
+                <% }) %>
+                <% } %>
 
-                <div class="flex-1">
-                    <div class="flex-input-1">
-                        <label for="sex">Sex <span class="asterisk">*</span></label>
-                        <select name="sex" id="sex" required>
-                            <option value="none">--</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="rather">Rather not say</option>
-                        </select>
+                <form action="/register" method="post">
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-lg col-md-12 col-lg-4">
+                            <label for="firstname" class="form-label">Firstname</label>
+                            <input type="text" class="form-control" name="firstname" placeholder="Juan">
+                        </div>
+                        <div class="col-12 col-sm-lg col-md-12 col-lg-3">
+                            <label for="lastname" class="form-label">Lastname</label>
+                            <input type="text" class="form-control" name="lastname" placeholder="Dela Cruz">
+                        </div>
+                        <div class="col-12 col-sm-lg col-md-12 col-lg-3">
+                            <label for="middlename" class="form-label">Middlename</label>
+                            <input type="text" class="form-control" name="middlename" placeholder="Reyes">
+                        </div>
+                        <div class="col-12 col-sm-lg col-md-12 col-lg-2">
+                            <label for="suffix" class="form-label">Suffix</label>
+                            <input type="text" name="suffix" class="form-control" placeholder="Jr.">
+                        </div>
                     </div>
-                    <div class="flex-input-1">
-                        <label for="age">Age <span class="asterisk">*</span></label>
-                        <input type="number" name="age" id="age" required>
-                    </div>
-                    <div class="flex-input-1">
-                        <label for="birth-date">Birthday <span class="asterisk">*</span></label>
-                        <input type="date" name="birthday" id="birth-date" required>
-                    </div>
-                </div>
 
-                <div class="flex-1">
-                    <div class="flex-input-1">
-                        <label for="contact">Contact Number <span class="asterisk">*</span></label>
-                        <input type="number" name="contactNumber" id="contact" placeholder="09998887777" required>
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="sex" class="form-label">Sex</label>
+                            <select name="sex" class="form-select" required>
+                                <option value="none">--</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="rather">Rather not say</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="birth-date" class="form-label">Birthday</label>
+                            <input type="hidden" class="form-control" name="age" id="age">
+                            <input type="date" name="birthday" class="form-control" id="birth-date">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="contact" class="form-label">Contact No.</label>
+                            <input type="number" name="contactNumber" class="form-control" id="contact"
+                                placeholder="09998887777">
+                        </div>
                     </div>
-                    <div class="flex-input-1">
-                        <label for="email">Email Address <span class="asterisk">*</span></label>
-                        <input type="email" name="emailAddress" id="email" placeholder="email@example.com" required>
-                    </div>
-                    <div class="flex-input-1">
-                        <label for="password">Password <span class="asterisk">*</span></label>
-                        <input type="password" name="password" id="password" required>
-                    </div>
-                </div>
+                    <hr>
 
-                <div class="flex-2">
-                    <div class="flex-input-2">
-                        <label for="lot">Lot No.</label>
-                        <input type="text" name="lotNumber" id="lot" placeholder="">
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="emailAddress" id="email"
+                                placeholder="email@example.com">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
                     </div>
-                    <div class="flex-input-2">
-                        <label for="street">Street No.</label>
-                        <input type="text" name="streetNumber" id="street" placeholder="Bonifacio Street">
+                    <hr>
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <label for="lot" class="form-label">Lot No.</label>
+                            <input type="text" class="form-control" name="lotNumber" id="lot" placeholder="">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <label for="street" class="form-label">Street No.</label>
+                            <input type="text" class="form-control" name="streetNumber" id="street"
+                                placeholder="Bonifacio Street">
+                        </div>
                     </div>
-                    <div class="flex-input-2">
-                        <label for="city">City <span class="asterisk">*</span></label>
-                        <input type="text" name="city" id="city" required>
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" name="city" id="city">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="province" class="form-label">Province</label>
+                            <input type="text" class="form-control" name="province" id="province" placeholder="">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="zip" class="form-label">Zip Code</label>
+                            <input type="text" class="form-control" name="zipCode" id="zip" placeholder="3023">
+                        </div>
                     </div>
-                </div>
 
-                <div class="flex-2">
-                    <div class="flex-input-2">
-                        <label for="province">Province <span class="asterisk">*</span></label>
-                        <input type="text" name="province" id="province" placeholder="" required>
+                    <hr>
+                    <div class="row my-2">
+                        <div class="col-12">
+                            <label for="vaccine" class="form-label">Vaccine</label>
+                            <select name="vaccine" class="form-select" id="vaccine" onchange="showDiv(this)">
+                                <option value="None">None</option>
+                                <option value="Johnson & Johnson">Johnson & Johnson</option>
+                                <option value="Pfizer">Pfizer</option>
+                                <option value="Moderna">Moderna</option>
+                                <option value="Astrazeneca">Astrazeneca</option>
+                                <option value="Sinovac">Sinovac</option>
+                                <option value="Sinopharm">Sinopharm</option>
+                                <option value="Sputnik-V">Sputnik V</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="flex-input-2">
-                        <label for="zip">Zip Code <span class="asterisk">*</span></label>
-                        <input type="text" name="zipCode" id="zip" placeholder="3023" required>
-                    </div>
-                    <div class="flex-input-2">
-                        <label for="vaccine">Vaccine <span class="asterisk">*</span></label>
-                        <select name="vaccine" id="vaccine" onchange="showDiv(this)" required>
-                            <option value="None">None</option>
-                            <option value="Johnson & Johnson">Johnson & Johnson</option>
-                            <option value="Pfizer">Pfizer</option>
-                            <option value="Moderna">Moderna</option>
-                            <option value="Astrazeneca">Astrazeneca</option>
-                            <option value="Sinovac">Sinovac</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="flex-3" id="dose-div">
-                    <div class="flex-input-3">
-                        <label for="first-dose">1st Dose <span class="asterisk">*</span></label>
-                        <input type="date" name="firstDose" id="first-dose">
+                    <div id="vaccineBox">
+                        <div class="row my-2">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                <label for="first-dose" class="form-label">1st Dose</label>
+                                <input type="date" class="form-control" name="firstDose" id="first-dose">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                <label for="second-dose" class="form-label">2nd Dose</label>
+                                <input type="date" class="form-control" name="secondDose" id="second-dose">
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex-input-3" id="sDiv">
-                        <label for="second-dose">2nd Dose <span class="asterisk">*</span></label>
-                        <input type="date" name="secondDose" id="second-dose">
+                    <hr>
+                    <div class="d-grid mt-3">
+                        <button class="__my-btn-primary btn">Submit</button>
                     </div>
-                </div>
-                <button type="submit" id="submit">SUBMIT</button>
-            </form>
-        </section>
+                </form>
+            </div>
+
+        </div>
 
     </div>
+    <div class="container-fluid py-3 bg-light border-top">
+        <div class="container text-center">
+            <p class="lead fs-6"> Trace with Us &copy; 2022</p>
+        </div>
+    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-    <script src="/JS/script.js"></script>
-    <script src="/JS/hideAndShowScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/JS/registration.js"></script>
+
+    <script>
+        const birthDateInput = document.querySelector('#birth-date');
+        const ageInput = document.querySelector('#age');
+
+        const calcuAge = () => {
+            const dateNow = new Date();
+            const birthDate = new Date(birthDateInput.value);
+
+            const age = dateNow.getFullYear() - birthDate.getFullYear();
+
+            ageInput.value = age;
+
+        }
+
+        birthDateInput.addEventListener('change', () => {
+            calcuAge()
+        })
+    </script>
 </body>
 
 </html>

@@ -48,7 +48,7 @@
                         <hr>
                         <form action="/logOut" method="post">
                             <div class="d-grid py-2">
-                                <button type="submit" class="__my-btn btn bg-gradient"><i
+                                <button type="submit" class="__my-btn-danger btn bg-gradient"><i
                                         class="fa fa-sign-out me-1"></i>
                                     Log Out</button>
                             </div>
@@ -296,6 +296,28 @@
     <div class="container-fluid py-3 bg-light border-top">
         <div class="container text-center">
             <p class="lead fs-6"> Trace with Us &copy; 2022</p>
+        </div>
+    </div>
+
+    <!-- MODAL - FOR LOG OUT -->
+
+    <div class="modal" tabindex="-1" id="logoutModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Log Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to log out?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <form action="/logOut" method="post">
+                        <button type="submit" class="btn btn-outline-danger">Log Out</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
