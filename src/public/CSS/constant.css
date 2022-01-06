@@ -13,10 +13,50 @@ body {
   color: #ff3c3c;
   font-weight: 500;
   border-radius: .6rem;
-  padding: .4rem 0;
+  padding: .4rem .8rem;
   font-size: 1.0rem;
 }
 .__my-btn-danger:hover{
   background-color: #ff3c3c;
   color: #ffffff;
+}
+
+.__my-btn-primary{
+  background-color: #beddff;
+  color: #188cff;
+  font-weight: 500;
+  border-radius: .4rem;
+  padding: .4rem .8rem;
+  font-size: 1rem;
+}
+.__my-btn-primary:hover{
+  background-color: #3699FF;
+  color: #ffffff;
+}
+.__my-btn-outline-primary{
+  background-color: transparent;
+  color: #188cff;
+  border: 1px solid #188cff;
+  font-weight: 500;
+  border-radius: .4rem;
+  padding: .4rem .8rem;
+  font-size: 1rem;
+}
+.__my-btn-outline-primary:hover{
+background-color: #3699FF;
+  color: #ffffff;
+}
+
+.__my-btn-outline-light{
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  font-weight: 500;
+  border-radius: .4rem;
+  padding: .4rem .8rem;
+  font-size: 1rem;
+}
+.__my-btn-outline-light:hover{
+background-color: #fff;
+  color: #000000;
 }

@@ -100,7 +100,7 @@
     <div class="container-fluid bg-light">
 
         <div class="container p-5">
-            <div class="container">
+            <div class="container pt-3 px-5 my-2 bg-light border rounded-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/selectedPage">Pages</a></li>
@@ -113,94 +113,116 @@
                 <div class="card-header"><i class="fa fa-info-circle me-1"></i> Personal Information</div>
                 <div class="card-body p-5">
 
-                    <!-- <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
 
+                    <div class="row py-4 px-3 my-2 rounded-3">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-3 fw-bold">Firstname</div>
+                                <div class="col-6">: <%= user.firstname %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Lastname</div>
+                                <div class="col-6">: <%= user.lastname %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Middlename</div>
+                                <div class="col-6">: <%= user.middlename %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Birthday</div>
+                                <div class="col-6">:
+                                    <% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
+                                    <% const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]; %>
+                                    <% const d = new Date(user.birthday) %>
+                                    <% const month =  months[d.getMonth()] %>
+                                    <% const day = days[d.getDay() -1] %>
+                                    <%= day %>
+                                    <%= month %>
+                                    <%= d.getDate() %>,
+                                    <%= d.getFullYear()%>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-
-                        </div>
-                    </div> -->
-
-                    <div class="row">
-                        <div class="col-2"><b>FIRSTNAME : </b></div>
-                        <div class="col"><%= user.firstname %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>LASTNAME : </b></div>
-                        <div class="col"><%= user.lastname %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>MIDDLENAME : </b></div>
-                        <div class="col"><%= user.middlename %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Suffix : </b></div>
-                        <div class="col"><%= user.suffix %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Sex : </b></div>
-                        <div class="col"><%= user.sex %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Age : </b></div>
-                        <div class="col"><%= user.age %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Birthday : </b></div>
-                        <div class="col">
-                            <% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
-                            <% const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]; %>
-                            <% const d = new Date(user.birthday) %>
-                            <% const month =  months[d.getMonth()] %>
-                            <% const day = days[d.getDay() -1] %>
-                            <%= day %>
-                            <%= month %>
-                            <%= d.getDate() %>,
-                            <%= d.getFullYear()%>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-3 fw-bold">Suffix</div>
+                                <div class="col-6">: <%= user.suffix %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Sex</div>
+                                <div class="col-6">: <%= user.sex %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Age</div>
+                                <div class="col-6">: <%= user.age %> years old</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-2"><b>Contact No. : </b></div>
-                        <div class="col"><%= user.contactNumber %> </div>
+                    <hr>
+                    <div class="row py-4 px-3 my-2 rounded-3">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-3 fw-bold">Email</div>
+                                <div class="col-6">: <%= user.email %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Contact No.</div>
+                                <div class="col-6">: <%= user.contactNumber %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">City</div>
+                                <div class="col-6">: <%= user.city %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Province</div>
+                                <div class="col-6">: <%= user.province %> </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-3 fw-bold">Lot No.</div>
+                                <div class="col-6">: <%= user.lotNumber %> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Street No.</div>
+                                <div class="col-6">: <%= user.streetNumber %></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 fw-bold">Vaccine</div>
+                                <div class="col-6">: <%= user.vaccine %> </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-2"><b>Email : </b></div>
-                        <div class="col"><%= user.email %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Lot Number : </b></div>
-                        <div class="col"><%= user.lotNumber %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Street Number : </b></div>
-                        <div class="col"><%= user.streetNumber %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>City : </b></div>
-                        <div class="col"><%= user.city %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Province : </b></div>
-                        <div class="col"><%= user.province %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Zip Code : </b></div>
-                        <div class="col"><%= user.zipCode %> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"><b>Vaccine : </b></div>
-                        <div class="col"><%= user.vaccine %> </div>
-                    </div>
+                    <hr>
+                    <div class="row py-4 px-3 my-2 rounded-3">
+                        <h4 class="mb-4">Vaccine Info</h4>
 
-
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-5 fw-bold">Vaccine</div>
+                                <div class="col-6">: <%= user.vaccine %> </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-5 fw-bold">First Dose</div>
+                                <div class="col-6">: <%= user.firstDose %> </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-5 fw-bold">Second Dose</div>
+                                <div class="col-6">: <%= user.secondDose %> </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
 
     </div>
-    <div class="container-fluid p-2 bg-light">
+    <div class="container-fluid bg-light">
         <hr>
         <div class="container text-center">
             <p class="lead fs-6"> Trace with Us &copy; 2022</p>

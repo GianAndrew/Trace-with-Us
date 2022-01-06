@@ -20,7 +20,7 @@
     <title>Trace with Us | Health Form</title>
 </head>
 
-<body style="background: url(./SRC/Background_2.png);">
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top sticky-top">
         <div class="container">
 
@@ -83,39 +83,47 @@
                         </ul>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
 
 
     <!--The main section where the contact tracing form is created-->
+
     <div class="container-fluid min-vh-100">
-        <div class="container bg-light border shadow rounded-3 my-5 p-5">
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/selectedPage">Pages</a></li>
-                        <li class="breadcrumb-item">Contact Tracing Form</li>
-                    </ol>
-                </nav>
-            </div>
+
+        <div class="container  pt-3 mt-5 px-5 bg-light border rounded-3 shadow">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/selectedPage">Pages</a></li>
+                    <li class="breadcrumb-item">Contact Tracing Form</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="container bg-light border shadow rounded-3 my-2 p-5">
+
             <h2 class="display-4">Contact Tracing Form</h2>
+
             <hr>
+
             <form action="/healthForm" method="POST">
+
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                         <label for="purposeOfVisit" class="form-label">Purpose of Visit</label>
                         <input type="text" class="form-control" name="purpose" id="purposeOfVisit" placeholder="Purpose"
                             required>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                         <label for="temp" class="form-label">Temperature</label>
                         <input type="number" class="form-control" name="temp" id="temperature" placeholder="36.0"
                             min="33" max="42" required>
                     </div>
                 </div>
+
                 <hr>
+
                 <div class="row">
                     <div class="col">
                         <p><b>Directions : </b><span class="lead fs-6">Please read and answer the form below for contact
@@ -126,20 +134,27 @@
                 </div>
 
                 <div class="row">
+
                     <div class="col-6">
                         <div class="text-center">
                             <h5>Questions</h5>
                         </div>
                     </div>
+
                     <div class="col-6">
                         <div class="text-center">
                             <h5>Answer</h5>
                         </div>
                     </div>
+
                 </div>
+
                 <div class="row">
+
                     <div class="col">
+
                         <div class="container my-2 p-5 border">
+
                             <div class="row my-3">
                                 <label for="qOne" class="col-10"><b>1.</b> Did you have cough or colds for the past
                                     7
@@ -155,53 +170,75 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row my-3">
+
                                 <label for="qTwo" class="col-10"><b>2.</b> Did you have fever or flu for the past 7
                                     days?</label>
+
                                 <div class="col-2">
+
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="qTwo" id="yes2" value="YES">
                                         <label class="form-check-label" for="yes2">YES</label>
                                     </div>
+
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="qTwo" id="no2" value="NO">
                                         <label class="form-check-label" for="no2">NO</label>
                                     </div>
+
                                 </div>
+
                             </div>
+
                             <div class="row my-3">
+
                                 <label for="qThree" class="col-10"><b>3.</b> Did you have any direct contact with a
                                     positive CoVid patient for the past 7 days?</label>
+
                                 <div class="col-2">
+
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="qThree" id="yes3"
                                             value="YES">
                                         <label class="form-check-label" for="yes3">YES</label>
                                     </div>
+
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="qThree" id="no3" value="NO">
                                         <label class="form-check-label" for="no3">NO</label>
                                     </div>
+
                                 </div>
                             </div>
+
                             <div class="row my-3">
+
                                 <label for="qFour" class="col-10"><b>4.</b> Have you travelled outside the
                                     province/country for the past 7 days?</label>
+
                                 <div class="col-2">
+
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="qFour" id="yes4" value="YES"
                                             onclick="hNS1(0)">
                                         <label class="form-check-label" for="yes4">YES</label>
                                     </div>
+
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="qFour" id="no4" value="NO"
                                             onclick="hNS1(1)">
                                         <label class="form-check-label" for="no4">NO</label>
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="row my-3" id="hideAndShow1">
+
                                 <div class="col-12">
+
                                     <div class="my-2">
                                         <label for="place" class="form-label">Province/Country Visited: </label> <br>
                                         <input type="text" name="place" id="place" class="form-control"
@@ -210,9 +247,12 @@
 
                                 </div>
                             </div>
+
                             <div class="row my-3">
+
                                 <label for="qFive" class="col-10"><b>5.</b> Have you ever been hospitalized for the past
                                     7 days?</label>
+
                                 <div class="col-2">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="qFive" id="yes5" value="YES"
@@ -225,9 +265,13 @@
                                         <label class="form-check-label" for="no5">NO</label>
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="row my-3" id="hideAndShow2">
+
                                 <div class="col-12">
+
                                     <div class="my-2">
                                         <label for="place" class="form-label">Cause of Hospitalization </label> <br>
                                         <input type="text" name="cause" id="cause" class="form-control"
@@ -239,6 +283,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row my-2">
                     <div class="d-grid">
                         <button type="submit" class="__submit-btn-primary btn bg-gradient">Submit</button>
@@ -246,9 +291,9 @@
                 </div>
             </form>
         </div>
-
     </div>
-    <div class="container-fluid py-3 bg-light">
+
+    <div class="container-fluid py-3 bg-light border-top">
         <div class="container text-center">
             <p class="lead fs-6"> Trace with Us &copy; 2022</p>
         </div>

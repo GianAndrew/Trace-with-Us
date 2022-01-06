@@ -93,16 +93,25 @@
         </div>
     </nav>
 
-    <div class="min-vh-100 bg-light" style="background-image: url(./SRC/Background_2.png);">
-        <div class="container-fluid bg-primary bg-gradient p-5">
-            <div class="container">
-                <h2 class="display-3 text-light">Hello,<b><%= user.firstname %></b></h2>
+    <div class="min-vh-100 bg-light">
 
+        <div class="container-fluid m-0 p-0">
+            <div class="card bg-dark text-white">
+                <img src="https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    class="card-img" alt="..." style="max-height: 500px; width: 100%; opacity: .5;">
+                <div class="card-img-overlay d-flex justify-content-center align-items-center flex-column">
+                    <h5 class="card-title display-1">Hello, <%= user.firstname %> </h5>
+                    <p class="card-text text-center">
+                        This is a wider card with supporting text below as a natural lead-in to
+                        additional content. <br>
+                        This content is a little bit longer.</p>
+                    <a href="/personalInfo" class=" __my-btn-outline-light btn">See my info</a>
+                </div>
             </div>
         </div>
 
-        <div class="container-fluid p-5 mt-3">
-            <div class="container">
+        <div class="container-fluid h-100 py-5 mt-3">
+            <div class="container pt-3 px-5 my-2 bg-light border rounded-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/selectedPage">Pages</a></li>
@@ -140,12 +149,12 @@
                                     <div class="col-12">
                                         <div class="container border my-3 p-3">
                                             <b>Purpose of Visit :</b>
-                                            <div class="container alert alert-info border my-2 py-4">
+                                            <div class="container alert alert-primary border my-2 py-4">
                                                 <%= element.purposeVisit %>
                                             </div>
                                             <b>Temperature :</b>
-                                            <div class="container alert alert-info border my-2 py-4">
-                                                <%= element.temperature %>
+                                            <div class="container alert alert-primary border my-2 py-4">
+                                                <%= element.temperature %> &deg;C
                                             </div>
                                         </div>
                                     </div>
@@ -215,13 +224,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container-fluid py-3 bg-light border-top">
 
-
-        <div class="container-fluid bg-light">
-            <hr>
-            <div class="container text-center">
-                <p class="lead fs-6"> Trace with Us &copy; 2022</p>
-            </div>
+        <div class="container text-center">
+            <p class="lead fs-6"> Trace with Us &copy; 2022</p>
         </div>
     </div>
 

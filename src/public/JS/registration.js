@@ -10,13 +10,10 @@ function showNote() {
 
 // The showDiv(select) function lets the input field (1st & 2nd dose) appear when a vaccine is selected
 function showDiv(select) {
-  if (select.value >= 2) {
+  if (select.value) {
     document.getElementById("dose-div").style.display = "flex";
     document.getElementById("sDiv").style.display = "block";
-  } else if (select.value == 1) {
-    document.getElementById("dose-div").style.display = "flex";
-    document.getElementById("sDiv").style.display = "none";
-  } else {
+  } if (select.value === 'None') {
     document.getElementById("dose-div").style.display = "none";
   }
 }

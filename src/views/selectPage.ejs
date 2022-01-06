@@ -17,7 +17,7 @@
     <title>Trace with Us | Select Page</title>
 </head>
 
-<body style="background: url('./SRC/Background_2.png');">
+<body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top sticky-top">
         <div class="container">
@@ -67,10 +67,16 @@
         </div>
     </nav>
 
-    <div class="container-fluid min-vh-100">
+    <div class="min-vh-100">
+        <div class="container-fluid p-5 bg-primary bg-gradient">
+            <div class="container">
+
+                <h2 class="display-3 text-light">Hello,<b><%= user.firstname %></b> </h2>
+            </div>
+        </div>
 
         <div class="container mt-5 p-5 bg-light border rounded-3 shadow ">
-            <div class="container">
+            <div class="container pt-3 px-5 my-2 bg-light border rounded-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Pages</li>
@@ -119,9 +125,9 @@
 
     </div>
 
-    <div class="container-fluid p-2 bg-light">
+    <div class="container-fluid bg-light">
         <hr>
-        <div class="container text-center">
+        <div class="container text-center bg-light">
             <p class="lead fs-6"> Trace with Us &copy; 2022</p>
         </div>
     </div>
