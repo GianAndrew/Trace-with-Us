@@ -33,6 +33,8 @@ router.get('/visitedPage', adminController.getAdminVisitedPage);
 
 router.get('/userPage', adminController.getAdminUserPage);
 
+router.get('/visitedDetails/:id', adminController.visitDetails)
+
 //---------------------------------- POST METHOD ----------------------------------
 
 router.post('/login', adminController.adminPage, passport.authenticate('local', {

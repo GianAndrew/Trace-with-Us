@@ -17,15 +17,20 @@ const getAdminPage = async (req, res) => {
         const getTotalVisit = await adminService.getTotalVisit();
         const getTotalUser = await adminService.getTotalUser();
 
+        const getAllVisit = await adminService.getAllVisit();
+
         return res.render('adminDashboard.ejs', {
             totalVisit: getTotalVisit[0].totalVisit,
-            totalUser: getTotalUser[0].totalUser
+            totalUser: getTotalUser[0].totalUser,
+            AllVisit: getAllVisit
         });
 
     } catch (error) {
         console.log(error);
     }
 }
+
+//---------- VISIT -------------
 const getAdminVisitedPage = async (req, res) => {
 
     try {
@@ -46,6 +51,38 @@ const getAdminVisitedPage = async (req, res) => {
     }
 }
 
+const visitDetails = async (req, res) => {
+
+    const { id } = req.params
+    const getTotalVisit = await adminService.getTotalVisit();
+    const getTotalUser = await adminService.getTotalUser();
+    const result = await adminService.visitDetailsById(id);
+
+    try {
+
+        return res.render('visitDetailPage.ejs', {
+            totalVisit: getTotalVisit[0].totalVisit,
+            totalUser: getTotalUser[0].totalUser,
+            data: result[0]
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// Delete visit in admin page
+const deleteVisit = async (req, res) => {
+    const { deleteInput } = req.body;
+    try {
+        await adminService.deleteVisitById(deleteInput);
+        return res.redirect('/visitedPage');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//-------------- USER -------------
 
 const getAdminUserPage = async (req, res) => {
 
@@ -66,16 +103,6 @@ const getAdminUserPage = async (req, res) => {
     }
 }
 
-// Delete visit in admin page
-const deleteVisit = async (req, res) => {
-    const { deleteInput } = req.body;
-    try {
-        await adminService.deleteVisitById(deleteInput);
-        return res.redirect('/visitedPage');
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 // Delete user in admin page
 const deleteUser = async (req, res) => {
@@ -97,5 +124,6 @@ module.exports = {
     getAdminVisitedPage: getAdminVisitedPage,
     getAdminUserPage: getAdminUserPage,
     deleteVisit: deleteVisit,
-    deleteUser: deleteUser
+    deleteUser: deleteUser,
+    visitDetails: visitDetails
 };

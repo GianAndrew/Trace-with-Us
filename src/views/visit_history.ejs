@@ -133,7 +133,7 @@
                                 <%= d.getDate() %>,
                                 <%= d.getFullYear()%>
                                 <%= d.getHours() %>:<%= d.getMinutes() %>
-                                <%= d.gethours > 11 ? 'AM' : 'PM'  %>
+                                <%= d.gethours >= 12 ? 'AM' : 'PM'  %>
                             </button>
                         </h2>
                         <div id="flush-collapse-<%= element.formID.toString() %>" class="accordion-collapse collapse"

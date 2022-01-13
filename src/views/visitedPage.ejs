@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md- 12 col-lg-8">
                     <div class="container p-5 border shadow-sm">
-                        <h2><i class="fa fa-th-large me-2"></i>Manage Visit</h2>
+                        <h2><i class="fa fa-check-square-o me-2"></i>Manage Visit</h2>
                         <hr>
                         <div class="table-responsive">
                             <table class="table table-striped">
@@ -101,7 +101,7 @@
                                         <td><%= element.temperature %> </td>
                                         <td><%= element.purposeVisit %> </td>
                                         <td class="text-center">
-                                            <a href="visitedDetails/:<%= element.formID %> "
+                                            <a href="visitedDetails/<%= element.formID %> "
                                                 class="btn btn-primary">DETAILS</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteVisitModal"

@@ -114,6 +114,114 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="container-fluid border p-5 my-2">
+                            <h3>Recent Visit</h3>
+                            <hr>
+                            <% AllVisit.forEach(element => { %>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse-<%= element.formID.toString() %>"
+                                        aria-controls="flush-collapseOne">
+                                        <% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
+                                        <% const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]; %>
+                                        <% const d = new Date(element.timeCreated) %>
+                                        <% const month =  months[d.getMonth()] %>
+                                        <% const day = days[d.getDay() -1] %>
+                                        <b class="me-2">#<%= element.formID %> </b><%= day %>
+                                        <%= month %>
+                                        <%= d.getDate() %>,
+                                        <%= d.getFullYear()%>
+                                        <%= d.getHours() %>:<%= d.getMinutes() %>
+                                        <%= d.gethours >= 12 ? 'AM' : 'PM'  %>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapse-<%= element.formID.toString() %>"
+                                    class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="container border my-3 p-3">
+                                                    <b>Purpose of Visit :</b>
+                                                    <div class="container alert alert-primary border my-2 py-4">
+                                                        <%= element.purposeVisit %>
+                                                    </div>
+                                                    <b>Temperature :</b>
+                                                    <div class="container alert alert-primary border my-2 py-4">
+                                                        <%= element.temperature %> &deg;C
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col"></div> -->
+                                        </div>
+                                        <hr>
+                                        <div class="container px-3">
+                                            <div class="row my-2">
+                                                <div class="col-8"><b>Did you have cough or colds for the past 7 days?
+                                                        :</b>
+                                                </div>
+                                                <div class="col"><%= element.question_1 %> </div>
+                                            </div>
+                                            <div class="row my-2">
+                                                <div class="col-8"><b>Did you have fever or flu for the past 7 days?
+                                                        :</b></div>
+                                                <div class="col"><%= element.question_2 %> </div>
+                                            </div>
+                                            <div class="row my-2">
+                                                <div class="col-8"><b>Did you have any direct contact with a positive
+                                                        CoVid
+                                                        patient
+                                                        for the past 7 days? :</b></div>
+                                                <div class="col"><%= element.question_3 %> </div>
+                                            </div>
+                                            <div class="row my-2">
+                                                <div class="col-8"><b>Have you travelled outside the province/country
+                                                        for the
+                                                        past 7
+                                                        days? :</b></div>
+                                                <div class="col"><%= element.question_4 %> </div>
+                                            </div>
+                                            <div class="row my-2">
+                                                <div class="col-8"><b>Have you ever been hospitalized for the past 7
+                                                        days? :</b>
+                                                </div>
+                                                <div class="col"><%= element.question_5 %> </div>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col">
+
+                                                <div class="container border my-3 p-3">
+                                                    <b><i class="fa fa-map-marker me-1"></i> Province/Country
+                                                        Visited :</b>
+                                                    <% if(!element.place) { %>
+                                                    <div class="container alert alert-success border my-2 py-4">
+                                                        <%= 'None' %>
+                                                    </div>
+                                                    <% }else{ %>
+                                                    <div class="container alert alert-warning border my-2 py-4">
+                                                        <%= element.place %> </div>
+                                                    <%} %>
+                                                    <b><i class="fa fa-hospital-o me-1"></i> Cause of Hospitalization
+                                                        :</b>
+                                                    <% if(!element.cause) { %>
+                                                    <div class="container alert alert-success border my-2 py-4">
+                                                        <%= 'None' %>
+                                                    </div>
+                                                    <% }else{ %>
+                                                    <div class="container alert alert-warning border my-2 py-4">
+                                                        <%= element.cause %> </div>
+                                                    <%} %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                        </div>
                     </div>
                 </div>
             </div>

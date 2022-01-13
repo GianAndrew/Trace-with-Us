@@ -52,6 +52,7 @@ const getAllVisit = () => {
     })
 }
 
+
 const deleteVisitById = (id) => {
     return new Promise((resolve, reject) => {
         try {
@@ -78,11 +79,25 @@ const deleteUserById = (id) => {
     })
 }
 
+const visitDetailsById = (id) => {
+    return new Promise((resolve, reject) => {
+        try {
+            connection.query(`SELECT * FROM user_healthform WHERE formID = ${id}`, (err, result) => {
+                if (err) throw err;
+                resolve(result)
+            })
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
     getTotalUser: getTotalUser,
     getTotalVisit: getTotalVisit,
     getAllUser: getAllUser,
     getAllVisit: getAllVisit,
     deleteVisitById: deleteVisitById,
-    deleteUserById: deleteUserById
+    deleteUserById: deleteUserById,
+    visitDetailsById: visitDetailsById
 };
