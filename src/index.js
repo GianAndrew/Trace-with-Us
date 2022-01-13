@@ -6,6 +6,7 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const initPassportLocal = require('./controllers/passportController');
+const morgan = require('morgan');
 const app = express();
 
 initPassportLocal()
@@ -14,6 +15,7 @@ app.use(express.static(path.join('src', 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join('src', 'views'));
 
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser('secret-key'))
