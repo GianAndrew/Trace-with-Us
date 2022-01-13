@@ -98,26 +98,17 @@
 
     <div class="min-vh-100 bg-light">
 
-        <div class="container-fluid m-0 p-0">
-            <div class="card bg-dark text-white">
-                <img src="https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                    class="card-img" alt="..." style="max-height: 550px; width: 100%; opacity: .5;">
-                <div class="card-img-overlay d-flex justify-content-center align-items-center flex-column">
-                    <h5 class="card-title display-1">Hello, <%= user.firstname %> </h5>
-                    <p class="card-text text-center">
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. <br>
-                        This content is a little bit longer.</p>
-                    <a href="#accordionFlushExample" class=" __my-btn-outline-light btn">See History</a>
-                </div>
+        <div class="container-fluid bg-primary bg-gradient m-0 p-5">
+            <div class="container">
+                <h5 class="display-3 text-light">Hello, <%= user.firstname %> </h5>
             </div>
         </div>
 
-        <div class="container-fluid h-100 py-5 mt-5">
-            <div class="container pt-3 px-5 my-2 bg-light border rounded-3">
+        <div class="container-fluid py-5">
+            <div class="container pt-3 my-2 bg-light border rounded-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/selectedPage">Pages</a></li>
+                        <li class="breadcrumb-item"><a href="/HomePage">Home</a></li>
                         <li class="breadcrumb-item">Visit History</li>
                     </ol>
                 </nav>
@@ -165,28 +156,28 @@
                                 </div>
                                 <hr>
                                 <div class="container px-3">
-                                    <div class="row">
+                                    <div class="row my-2">
                                         <div class="col-8"><b>Did you have cough or colds for the past 7 days? :</b>
                                         </div>
                                         <div class="col"><%= element.question_1 %> </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row my-2">
                                         <div class="col-8"><b>Did you have fever or flu for the past 7 days? :</b></div>
                                         <div class="col"><%= element.question_2 %> </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row my-2">
                                         <div class="col-8"><b>Did you have any direct contact with a positive CoVid
                                                 patient
                                                 for the past 7 days? :</b></div>
                                         <div class="col"><%= element.question_3 %> </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row my-2">
                                         <div class="col-8"><b>Have you travelled outside the province/country for the
                                                 past 7
                                                 days? :</b></div>
                                         <div class="col"><%= element.question_4 %> </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row my-2">
                                         <div class="col-8"><b>Have you ever been hospitalized for the past 7 days? :</b>
                                         </div>
                                         <div class="col"><%= element.question_5 %> </div>
@@ -248,9 +239,9 @@
                     <p>Do you want to log out?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn __my-btn-secondary" data-bs-dismiss="modal">Close</button>
                     <form action="/logOut" method="post">
-                        <button type="submit" class="btn btn-outline-danger">Log Out</button>
+                        <button type="submit" class="btn __my-btn-danger">Log Out</button>
                     </form>
                 </div>
             </div>

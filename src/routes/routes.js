@@ -5,7 +5,7 @@ const loginController = require('../controllers/loginController');
 const registerController = require("../controllers/registerController");
 const visitHistoryController = require('../controllers/visitHistoryController');
 const personalInfoController = require('../controllers/personalInfoController')
-const selectPageController = require('../controllers/selectPageController');
+const HomePageController = require('../controllers/HomePageController');
 const authencation = require('../validator/authencation');
 
 
@@ -23,13 +23,13 @@ router.get('/visitHistory', loginController.checkLoggedIn, visitHistoryControlle
 
 router.get('/personalInfo', loginController.checkLoggedIn, personalInfoController.getPersonalInfoPage);
 
-router.get('/selectedPage', loginController.checkLoggedIn, selectPageController.getSelectPage)
+router.get('/HomePage', loginController.checkLoggedIn, HomePageController.getHomePage)
 
 
 //---------------------------------- POST METHOD ----------------------------------
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/selectedPage',
+    successRedirect: '/HomePage',
     failureRedirect: '/login',
     successFlash: true,
     failureFlash: true

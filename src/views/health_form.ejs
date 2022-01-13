@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top sticky-top">
         <div class="container">
 
             <a class="navbar-brand" href="/visitHistory">
@@ -46,13 +46,12 @@
                     <li class="d-block d-lg-none nav-item"><a href="/" class="nav-link">New Form</a></li>
                     <li class="d-block d-lg-none nav-item">
                         <hr>
-                        <form action="/logOut" method="post">
-                            <div class="d-grid py-2">
-                                <button type="submit" class="__my-btn-danger btn bg-gradient"><i
-                                        class="fa fa-sign-out me-1"></i>
-                                    Log Out</button>
-                            </div>
-                        </form>
+                        <div class="d-grid py-2">
+                            <button type="submit" class="__my-btn-danger btn bg-gradient" data-bs-toggle="modal"
+                                data-bs-target="#logoutModal"><i class="fa fa-sign-out me-1"></i>
+                                Log Out</button>
+                        </div>
+
                     </li>
 
                     <li class="d-none d-lg-block nav-item dropdown rounded-3 bg-light px-2 py-2">
@@ -92,10 +91,10 @@
 
     <div class="container-fluid min-vh-100">
 
-        <div class="container  pt-3 mt-5 px-5 bg-light border rounded-3 shadow">
+        <div class="container pt-3 mt-5 bg-light border rounded-3 shadow">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/selectedPage">Pages</a></li>
+                    <li class="breadcrumb-item"><a href="/HomePage">Home</a></li>
                     <li class="breadcrumb-item">Contact Tracing Form</li>
                 </ol>
             </nav>
@@ -312,9 +311,9 @@
                     <p>Do you want to log out?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn __my-btn-secondary" data-bs-dismiss="modal">Close</button>
                     <form action="/logOut" method="post">
-                        <button type="submit" class="btn btn-outline-danger">Log Out</button>
+                        <button type="submit" class="__my-btn-danger btn">Log Out</button>
                     </form>
                 </div>
             </div>
