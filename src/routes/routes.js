@@ -7,13 +7,15 @@ const visitHistoryController = require('../controllers/visitHistoryController');
 const personalInfoController = require('../controllers/personalInfoController')
 const HomePageController = require('../controllers/HomePageController');
 const authencation = require('../validator/authencation');
+const adminController = require('../controllers/adminController');
 
 
 const router = express.Router();
 
 //---------------------------------- GET METHOD ----------------------------------
 
-router.get('/', loginController.checkLoggedIn, healthFormController.getHealthFormPage)
+router.get('/', loginController.checkLoggedIn, healthFormController.getHealthFormPage);
+
 
 router.get('/login', loginController.checkLoggedOut, loginController.getLoginPage)
 
@@ -23,21 +25,33 @@ router.get('/visitHistory', loginController.checkLoggedIn, visitHistoryControlle
 
 router.get('/personalInfo', loginController.checkLoggedIn, personalInfoController.getPersonalInfoPage);
 
-router.get('/HomePage', loginController.checkLoggedIn, HomePageController.getHomePage)
+router.get('/HomePage', loginController.checkLoggedIn, HomePageController.getHomePage);
 
+router.get('/admin', adminController.getAdminPage);
+
+router.get('/visitedPage', adminController.getAdminVisitedPage);
+
+router.get('/userPage', adminController.getAdminUserPage);
 
 //---------------------------------- POST METHOD ----------------------------------
 
-router.post('/login', passport.authenticate('local', {
+router.post('/login', adminController.adminPage, passport.authenticate('local', {
     successRedirect: '/HomePage',
     failureRedirect: '/login',
     successFlash: true,
     failureFlash: true
-}))
+}));
+
 router.post('/register', authencation.validateRegister, registerController.createNewUser);
 
 router.post('/healthForm', healthFormController.fillUpHealthForm);
 
-router.post('/logOut', loginController.postLogOut)
+router.post('/logOut', loginController.postLogOut);
+
+router.post('/deleteVisit', adminController.deleteVisit);
+
+router.post('/deleteUser', adminController.deleteUser);
+
+
 
 module.exports = router;

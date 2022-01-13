@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+    <title>Trace With Us | Admin Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <h2 class="display-6 text-primary fw-light"><img src="/SRC/TraceWithUsLogo.png" class="mx-2" width="40"
+                        height="40">Trace With<span class="text-dark fw-bold"> Us</span>
+                </h2>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#logoutModal">Log Out</button></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-5 bg-light">
+
+        <div class="container p-2 my-2">
+            <div class="row gy-3">
+                <div class="col-12 col-sm-12 col-md- 12 col-lg-4">
+                    <div class="container p-5 border shadow-sm">
+                        <h2>Navigation</h2>
+                        <hr>
+                        <div class="list-group shadow-sm">
+                            <a href="/admin"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <div><i class="fa fa-th-large me-2"></i>Dashboard</div>
+                            </a>
+                            <a href="/visitedPage"
+                                class="list-group-item list-group-item-action  d-flex justify-content-between align-items-center">
+                                <div><i class="fa fa-check-square-o me-2"></i>Visited</div>
+                                <span class="badge bg-primary text-light rounded-pill"><%= totalVisit %></span>
+                            </a>
+                            <a href="/userPage"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center active">
+                                <div><i class="fa fa-users me-2"></i>User</div>
+                                <span class="badge bg-light text-primary rounded-pill"><%= totalUser %></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md- 12 col-lg-8">
+                    <div class="container p-5 border shadow-sm">
+                        <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <h2><i class="fa fa-users me-2"></i>Manage Users</h2>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">Add
+                                User</button>
+                        </div>
+                        <hr>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for( let index = 0; index < AllUser.length; index++ ) { %>
+                                    <% const element =  AllUser[index]%>
+
+                                    <tr>
+                                        <td><%= (index + 1) %> </td>
+                                        <td><%= element.firstname %> </td>
+                                        <td><%= element.lastname %> </td>
+                                        <td><%= element.age %> </td>
+                                        <td><%= element.sex %> </td>
+                                        <td class="text-center">
+                                            <a href="userDetails/:id" class="btn btn-primary">DETAILS</a>
+                                            <a href="userEdit/:id" class="btn btn-success">EDIT</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteUserModal"
+                                                onclick="deleteUserById('<%= element.userID%>')">DELETE</button>
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light">
+        <div class="text-center py-3 border-top">
+            <p>Trace with Us &copy; 2022</p>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addUserModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Add User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form action="/addUser" method="post">
+                            <div class="row my-2">
+                                <div class="col-12 col-sm-lg col-md-12 col-lg-4">
+                                    <label for="firstname" class="form-label">Firstname</label>
+                                    <input type="text" class="form-control" name="firstname" placeholder="Juan">
+                                </div>
+                                <div class="col-12 col-sm-lg col-md-12 col-lg-3">
+                                    <label for="lastname" class="form-label">Lastname</label>
+                                    <input type="text" class="form-control" name="lastname" placeholder="Dela Cruz">
+                                </div>
+                                <div class="col-12 col-sm-lg col-md-12 col-lg-3">
+                                    <label for="middlename" class="form-label">Middlename</label>
+                                    <input type="text" class="form-control" name="middlename" placeholder="Reyes">
+                                </div>
+                                <div class="col-12 col-sm-lg col-md-12 col-lg-2">
+                                    <label for="suffix" class="form-label">Suffix</label>
+                                    <input type="text" name="suffix" class="form-control" placeholder="Jr.">
+                                </div>
+                            </div>
+
+                            <div class="row my-2">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <label for="sex" class="form-label">Sex</label>
+                                    <select name="sex" class="form-select" required>
+                                        <option value="none">--</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="rather">Rather not say</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <label for="birth-date" class="form-label">Birthday</label>
+                                    <input type="hidden" class="form-control" name="age" id="age">
+                                    <input type="date" name="birthday" class="form-control" id="birth-date">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <label for="contact" class="form-label">Contact No.</label>
+                                    <input type="number" name="contactNumber" class="form-control" id="contact"
+                                        placeholder="09998887777">
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="row my-2">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="emailAddress" id="email"
+                                        placeholder="email@example.com">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password" id="password">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row my-2">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <label for="lot" class="form-label">Lot No.</label>
+                                    <input type="text" class="form-control" name="lotNumber" id="lot" placeholder="">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <label for="street" class="form-label">Street No.</label>
+                                    <input type="text" class="form-control" name="streetNumber" id="street"
+                                        placeholder="Bonifacio Street">
+                                </div>
+                            </div>
+                            <div class="row my-2">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <label for="city" class="form-label">City</label>
+                                    <input type="text" class="form-control" name="city" id="city">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <label for="province" class="form-label">Province</label>
+                                    <input type="text" class="form-control" name="province" id="province"
+                                        placeholder="">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                                    <label for="zip" class="form-label">Zip Code</label>
+                                    <input type="text" class="form-control" name="zipCode" id="zip" placeholder="3023">
+                                </div>
+                            </div>
+
+                            <hr>
+                            <div class="row my-2">
+                                <div class="col-12">
+                                    <label for="vaccine" class="form-label">Vaccine</label>
+                                    <select name="vaccine" class="form-select" id="vaccine">
+                                        <option value="None">None</option>
+                                        <option value="Johnson & Johnson">Johnson & Johnson</option>
+                                        <option value="Pfizer">Pfizer</option>
+                                        <option value="Moderna">Moderna</option>
+                                        <option value="Astrazeneca">Astrazeneca</option>
+                                        <option value="Sinovac">Sinovac</option>
+                                        <option value="Sinopharm">Sinopharm</option>
+                                        <option value="Sputnik-V">Sputnik V</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="vaccineBox">
+                                <div class="row my-2">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                        <label for="first-dose" class="form-label">1st Dose</label>
+                                        <input type="date" class="form-control" name="firstDose" id="first-dose">
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                        <label for="second-dose" class="form-label">2nd Dose</label>
+                                        <input type="date" class="form-control" name="secondDose" id="second-dose">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="d-grid mt-3">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ----------------------DELETE USER MODAL---------------------- -->
+    <div class="modal fade" id="deleteUserModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Delete User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to delete you this user?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <form action="/deleteUser" method="post">
+                        <input type="hidden" name="deleteUser" id="deleteUser">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ----------------------- LOG OUT MODAL ----------------------- -->
+    <div class="modal" tabindex="-1" id="logoutModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Log Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to log out?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+
+                    <a href="/login" class="btn btn-outline-danger">Log Out</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        const birthDateInput = document.querySelector('#birth-date');
+        const ageInput = document.querySelector('#age');
+        const deleteUserInput = document.querySelector('#deleteUser')
+
+        const calcuAge = () => {
+            const dateNow = new Date();
+            const birthDate = new Date(birthDateInput.value);
+
+            const age = dateNow.getFullYear() - birthDate.getFullYear();
+
+            ageInput.value = age;
+
+        };
+
+        birthDateInput.addEventListener('change', () => {
+            calcuAge()
+        });
+
+        function deleteUserById(id) {
+            deleteUserInput.value = id;
+        };
+
+    </script>
+
+</body>
+
+</html>
