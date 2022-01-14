@@ -92,6 +92,72 @@ const visitDetailsById = (id) => {
     })
 }
 
+const userDetailsById = (id) => {
+    return new Promise((resolve, reject) => {
+        try {
+            connection.query(`SELECT * FROM user_account WHERE userID = ${id}`, (err, result) => {
+                if (err) throw err;
+                resolve(result);
+            })
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+const editUserById = (id) => {
+    return new Promise((resolve, reject) => {
+        try {
+            connection.query(`SELECT * FROM user_account WHERE userID = ${id}`, (err, result) => {
+                if (err) throw err;
+                resolve(result);
+            })
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+const updateUser = (userId, firstname, lastname, middlename, suffix, sex, age, birthday, contactNumber, lotNumber, streetNumber, city, province, zipCode, vaccine, firstDose, secondDose) => {
+    return new Promise((resolve, reject) => {
+        try {
+            connection.query(`UPDATE user_account SET firstname ='${firstname}', lastname ='${lastname}', middlename ='${middlename}', suffix ='${suffix}', sex ='${sex}', age ='${age}', birthday ='${birthday}', contactNumber ='${contactNumber}', lotNumber='${lotNumber}', streetNumber ='${streetNumber}',city ='${city}', province='${province}', zipCode='${zipCode}', vaccine='${vaccine}', firstDose='${firstDose}', secondDose='${secondDose}' WHERE userID = ${userId}`, (err, result) => {
+                if (err) throw err;
+                resolve(result)
+            });
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+const getTotalFirstDose = () => {
+    return new Promise((resolve, reject) => {
+        try {
+            connection.query(`SELECT COUNT(firstDose) AS totalFirstDose FROM user_account WHERE NOT firstDose  = ''`, (err, result) => {
+                if (err) throw err;
+                console.log(result);
+                resolve(result);
+            })
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+const getTotalSecondDose = () => {
+    return new Promise((resolve, reject) => {
+        try {
+            connection.query(`SELECT COUNT(secondDose) AS totalSecondDose FROM user_account WHERE NOT secondDose  = ''`, (err, result) => {
+                if (err) throw err;
+                console.log(result);
+                resolve(result);
+            })
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
     getTotalUser: getTotalUser,
     getTotalVisit: getTotalVisit,
@@ -99,5 +165,10 @@ module.exports = {
     getAllVisit: getAllVisit,
     deleteVisitById: deleteVisitById,
     deleteUserById: deleteUserById,
-    visitDetailsById: visitDetailsById
+    visitDetailsById: visitDetailsById,
+    userDetailsById: userDetailsById,
+    editUserById: editUserById,
+    updateUser: updateUser,
+    getTotalFirstDose: getTotalFirstDose,
+    getTotalSecondDose: getTotalSecondDose
 };

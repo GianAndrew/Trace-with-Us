@@ -16,7 +16,6 @@ const router = express.Router();
 
 router.get('/', loginController.checkLoggedIn, healthFormController.getHealthFormPage);
 
-
 router.get('/login', loginController.checkLoggedOut, loginController.getLoginPage)
 
 router.get('/register', loginController.checkLoggedOut, registerController.getRegisterPage)
@@ -33,7 +32,11 @@ router.get('/visitedPage', adminController.getAdminVisitedPage);
 
 router.get('/userPage', adminController.getAdminUserPage);
 
-router.get('/visitedDetails/:id', adminController.visitDetails)
+router.get('/visitedDetails/:id', adminController.visitDetails);
+
+router.get('/userDetails/:id', adminController.getUserDetailsPage);
+
+router.get('/userEdit/:id', adminController.editUserPage);
 
 //---------------------------------- POST METHOD ----------------------------------
 
@@ -53,6 +56,8 @@ router.post('/logOut', loginController.postLogOut);
 router.post('/deleteVisit', adminController.deleteVisit);
 
 router.post('/deleteUser', adminController.deleteUser);
+
+router.post('/updateUser', adminController.updateUserById);
 
 
 

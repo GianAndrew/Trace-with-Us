@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/SRC/TraceWithUsLogo.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/CSS/constant.css">
+
+
+    <title>Trace with Us | Edit User</title>
+</head>
+
+<body>
+
+    <!-- -----------------------------------NAVBAR----------------------------------- -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="/admin">
+                <h2 class="display-6 text-primary fw-light"><img src="/SRC/TraceWithUsLogo.png" class="mx-2" width="40"
+                        height="40">Trace With<span class="text-dark fw-bold"> Us</span>
+                </h2>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#logoutModal">Log Out</button></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- --------------------------------EDIT USER-------------------------------- -->
+
+
+    <!--This is where the registration form code is located-->
+    <div class="container-fluid min-vh-100 bg-light">
+
+        <div class="container p-5">
+
+            <div class="container pt-3 my-2 bg-light border rounded-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+
+                        <li class="breadcrumb-item"><a href="/userPage">User</a></li>
+                        <li class="breadcrumb-item active">Edit User</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="container p-5 border shadow">
+
+                <h2 class="display-4">Edit User</h2>
+                <hr>
+
+                <form action="/updateUser" method="post">
+                    <input type="hidden" name="userId" value="<%= user.userID %> ">
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-lg col-md-12 col-lg-4">
+                            <label for="firstname" class="form-label">Firstname</label>
+                            <input type="text" class="form-control" name="firstname" placeholder="Juan"
+                                value="<%= user.firstname %> ">
+                        </div>
+                        <div class="col-12 col-sm-lg col-md-12 col-lg-3">
+                            <label for="lastname" class="form-label">Lastname</label>
+                            <input type="text" class="form-control" name="lastname" placeholder="Dela Cruz"
+                                value="<%= user.lastname %> ">
+                        </div>
+                        <div class="col-12 col-sm-lg col-md-12 col-lg-3">
+                            <label for="middlename" class="form-label">Middlename</label>
+                            <input type="text" class="form-control" name="middlename" placeholder="Reyes"
+                                value="<%= user.middlename %> ">
+                        </div>
+                        <div class="col-12 col-sm-lg col-md-12 col-lg-2">
+                            <label for="suffix" class="form-label">Suffix</label>
+                            <input type="text" name="suffix" class="form-control" placeholder="Jr."
+                                value="<%= user.suffix %> ">
+                        </div>
+                    </div>
+
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="sex" class="form-label">Sex</label>
+                            <select name="sex" class="form-select" required>
+                                <option value="none">--</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="rather">Rather not say</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="birth-date" class="form-label">Birthday</label>
+                            <input type="hidden" class="form-control" name="age" id="age" value="<%= user.age %> ">
+                            <input type="date" name="birthday" class="form-control" id="birth-date"
+                                value="<%= user.birthday %> ">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="contact" class="form-label">Contact No.</label>
+                            <input type="number" name="contactNumber" class="form-control" id="contact"
+                                value="<%= user.contactNumber %> " placeholder="09998887777">
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="emailAddress" id="email"
+                                placeholder="email@example.com" value="<%= user.email %> " disabled>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                value="<%= user.password %> " disabled>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <label for="lot" class="form-label">Lot No.</label>
+                            <input type="text" class="form-control" name="lotNumber" id="lot" placeholder=""
+                                value="<%= user.lotNumber %> ">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <label for="street" class="form-label">Street No.</label>
+                            <input type="text" class="form-control" name="streetNumber" id="street"
+                                placeholder="Bonifacio Street" value="<%= user.streetNumber %> ">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" name="city" id="city" value="<%= user.city %> ">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="province" class="form-label">Province</label>
+                            <input type="text" class="form-control" name="province" id="province" placeholder=""
+                                value="<%= user.province %> ">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <label for="zip" class="form-label">Zip Code</label>
+                            <input type="text" class="form-control" name="zipCode" id="zip" placeholder="3023"
+                                value="<%= user.zipCode %> ">
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="row my-2">
+                        <div class="col-12">
+                            <label for="vaccine" class="form-label">Vaccine</label>
+                            <select name="vaccine" class="form-select" id="vaccine">
+                                <option value="<%= user.vaccine %> "><%= user.vaccine %> </option>
+                                <option value="None">None</option>
+                                <option value="Johnson & Johnson">Johnson & Johnson</option>
+                                <option value="Pfizer">Pfizer</option>
+                                <option value="Moderna">Moderna</option>
+                                <option value="Astrazeneca">Astrazeneca</option>
+                                <option value="Sinovac">Sinovac</option>
+                                <option value="Sinopharm">Sinopharm</option>
+                                <option value="Sputnik-V">Sputnik V</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="vaccineBox">
+                        <div class="row my-2">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                <label for="first-dose" class="form-label">1st Dose</label>
+                                <input type="date" class="form-control" name="firstDose" id="first-dose"
+                                    value="<%= user.firstDose %> ">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                <label for="second-dose" class="form-label">2nd Dose</label>
+                                <input type="date" class="form-control" name="secondDose" id="second-dose"
+                                    value="<%= user.secondDose %> ">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-grid mt-3">
+                        <button class="__my-btn-primary btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="container-fluid py-3 bg-light border-top">
+        <div class="container text-center">
+            <p class="lead fs-6"> Trace with Us &copy; 2022</p>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="logoutModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Log Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to log out?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+
+                    <a href="/login" class="btn btn-outline-danger">Log Out</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const birthDateInput = document.querySelector('#birth-date');
+        const ageInput = document.querySelector('#age');
+
+        const calcuAge = () => {
+            const dateNow = new Date();
+            const birthDate = new Date(birthDateInput.value);
+
+            const age = dateNow.getFullYear() - birthDate.getFullYear();
+
+            ageInput.value = age;
+
+        }
+
+        birthDateInput.addEventListener('change', () => {
+            calcuAge()
+        })
+    </script>
+</body>
+
+</html>

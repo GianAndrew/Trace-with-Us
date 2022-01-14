@@ -1,4 +1,5 @@
 const adminService = require('../services/adminService');
+const { validationResult } = require('express-validator');
 
 const adminPage = (req, res, next) => {
 
@@ -17,12 +18,17 @@ const getAdminPage = async (req, res) => {
         const getTotalVisit = await adminService.getTotalVisit();
         const getTotalUser = await adminService.getTotalUser();
 
+        const getTotalFirstDose = await adminService.getTotalFirstDose();
+        const getTotalSecondDose = await adminService.getTotalSecondDose();
+
         const getAllVisit = await adminService.getAllVisit();
 
         return res.render('adminDashboard.ejs', {
             totalVisit: getTotalVisit[0].totalVisit,
             totalUser: getTotalUser[0].totalUser,
-            AllVisit: getAllVisit
+            AllVisit: getAllVisit,
+            totalFirstDose: getTotalFirstDose[0].totalFirstDose,
+            totalSecondDose: getTotalSecondDose[0].totalSecondDose
         });
 
     } catch (error) {
@@ -44,7 +50,7 @@ const getAdminVisitedPage = async (req, res) => {
             totalVisit: getTotalVisit[0].totalVisit,
             totalUser: getTotalUser[0].totalUser,
             AllVisit: getAllVisit
-        })
+        });
 
     } catch (error) {
         console.log(error);
@@ -118,6 +124,53 @@ const deleteUser = async (req, res) => {
     }
 }
 
+const getUserDetailsPage = async (req, res) => {
+
+    const { id } = req.params;
+
+    try {
+
+        const result = await adminService.userDetailsById(id);
+
+        return res.render('userDetails.ejs', {
+            user: result[0]
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+const editUserPage = async (req, res) => {
+
+    const { id } = req.params;
+
+    try {
+
+        const result = await adminService.editUserById(id);
+
+        return res.render('userEdit.ejs', { user: result[0] });
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const updateUserById = async (req, res) => {
+
+    const userId = req.body.userId;
+    const { firstname, lastname, middlename, suffix, sex, age, birthday, contactNumber, lotNumber, streetNumber, city, province, zipCode, vaccine, firstDose, secondDose } = req.body;
+
+    try {
+        await adminService.updateUser(userId, firstname, lastname, middlename, suffix, sex, age, birthday, contactNumber, lotNumber, streetNumber, city, province, zipCode, vaccine, firstDose, secondDose);
+        return res.redirect('/userPage');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 module.exports = {
     adminPage: adminPage,
     getAdminPage: getAdminPage,
@@ -125,5 +178,8 @@ module.exports = {
     getAdminUserPage: getAdminUserPage,
     deleteVisit: deleteVisit,
     deleteUser: deleteUser,
-    visitDetails: visitDetails
+    visitDetails: visitDetails,
+    getUserDetailsPage: getUserDetailsPage,
+    editUserPage: editUserPage,
+    updateUserById: updateUserById
 };
