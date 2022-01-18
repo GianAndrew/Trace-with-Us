@@ -15,7 +15,7 @@ const initPassportLocal = () => {
         try {
             const users = await loginService.findUserByEmail(email);
             if (!users) {
-                return done(null, false, `This user email ${email} doesn't exist`);
+                return done(null, false, req.flash('errors', `This user email ${email} doesn't exist`));
             }
             if (users) {
                 const match = await loginService.comparePasswordUser(users, password);
@@ -23,7 +23,7 @@ const initPassportLocal = () => {
                     return done(null, users, null);
                 }
                 else {
-                    return done(null, false, match)
+                    return done(null, false, req.flash('errors', match))
                 }
             }
         } catch (error) {

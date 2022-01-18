@@ -1,5 +1,7 @@
 const getLoginPage = (req, res) => {
-    return res.render('login.ejs');
+    return res.render('login.ejs', {
+        errors: req.flash('errors')
+    });
 }
 
 const checkLoggedOut = (req, res, next) => {

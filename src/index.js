@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const router = require('./routes/routes');
 const path = require('path');
+const connectFlash = require('connect-flash');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -30,6 +31,8 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(connectFlash())
 
 app.use('/', router);
 
