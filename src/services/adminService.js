@@ -5,7 +5,6 @@ const getTotalUser = () => {
         try {
             connection.query('SELECT COUNT(userID) AS totalUser FROM user_account', (err, result) => {
                 if (err) throw err;
-
                 resolve(result)
             })
         } catch (error) {
@@ -136,7 +135,6 @@ const getTotalFirstDose = () => {
         try {
             connection.query(`SELECT COUNT(firstDose) AS totalFirstDose FROM user_account WHERE NOT firstDose  = ''`, (err, result) => {
                 if (err) throw err;
-                console.log(result);
                 resolve(result);
             })
         } catch (error) {
@@ -149,7 +147,6 @@ const getTotalSecondDose = () => {
         try {
             connection.query(`SELECT COUNT(secondDose) AS totalSecondDose FROM user_account WHERE NOT secondDose  = ''`, (err, result) => {
                 if (err) throw err;
-                console.log(result);
                 resolve(result);
             })
         } catch (error) {
